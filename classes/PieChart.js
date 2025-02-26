@@ -28,54 +28,67 @@ class PieChart{
 
     render(){// this is a method that will render the bars in the chart
         push()
-	translate(this.chartPosX,this.chartPosY);
+            translate(this.chartPosX,this.chartPosY);
 
-	for(let i=0;i<myNewArray.length;i++){
-			fill(255)
-			noStroke()
-			let start = 0;
-			let end =360/myNewArray.length
-	
-			let mid = (end - start)/2;
-			let xPos = 200 * cos (mid);
-			let yPos = 200 * sin (mid);
-			let circleWidth = yPos * cos(mid);
-			ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
+            for(let i=0;i<myNewArray.length;i++){
+                fill(255)
+                noStroke()
+                let start = 0;
+                let end =360/myNewArray.length
+            
+                let mid = (end - start)/2;
+                let xPos = 200 * cos (mid);
+                let yPos = 200 * sin (mid);
+                let circleWidth = yPos * cos(mid);
+                ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
 
-			arc(0,0,400,400,start,end,PIE);
-			
-			rotate(end );
-		}
+                arc(0,0,400,400,start,end,PIE);
+                    
+                rotate(end );
+            }
 
-		
-	for(let i=0;i<myNewArray.length;i++){
-		fill(random(150));
-		stroke(255)
-		let start = 0;
-		let end = 360/myNewArray.length;
+                
+            for(let i=0;i<myNewArray.length;i++){
+                fill(random(150));
+                stroke(255)
+                let start = 0;
+                let end = 360/myNewArray.length;
 
-		let maxValue = max(myNewArray)
-		let scaleValue = (400/maxValue);
-		let height = ((myNewArray[i]/maxValue)*400); 
+                let maxValue = max(myNewArray)
+                let scaleValue = (400/maxValue);
+                let height = ((myNewArray[i]/maxValue)*400); 
 
-		let mid = (end - start)/2;
-			let xPos = height/2 * cos (mid);
-			let yPos = height/2 * sin (mid);
-			let circleWidth = yPos * cos(mid);
-			ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
+                let mid = (end - start)/2;
+                let xPos = height/2 * cos (mid);
+                let yPos = height/2 * sin (mid);
+                let circleWidth = yPos * cos(mid);
+                ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
+                
+                //console.log(scaleValue,myNewArray);
+                noStroke()
+                arc(0,0,height,height,start,end,PIE);
+                
+                rotate(end);
+            }
 
-
-
-		
-		//console.log(scaleValue,myNewArray);
-		noStroke()
-		arc(0,0,height,height,start,end,PIE);
-		
-		rotate(end);
-	}
-
-
-	pop();
+            for (let i = 0; i < myNewArray.length; i++) {
+                let start = (i * (360 / myNewArray.length));
+                let end = ((i + 1) * (360 / myNewArray.length));
+            
+                // Find the middle of the arc where the text should go
+                let mid = (start + end) / 2;
+            
+                // Set the position where the text will appear (slightly outside the circle)
+                this.xValue = 200 * cos(mid) * 1.2; // The multiplier controls how far outside the pie the text is
+                this.yValues = 200 * sin(mid) * 1.2;
+            
+                // Display the text at the calculated position
+                fill(255);
+                noStroke();
+                textAlign(CENTER, CENTER);
+                text(myNewArray[i], this.xValue, this.yValues); // You can change `myNewArray[i]` to any label you want to show
+            }
+        pop();
     }
 
     
