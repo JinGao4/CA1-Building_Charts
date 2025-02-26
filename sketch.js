@@ -50,7 +50,7 @@ function setup() {
         axisThickness: 4,
         axisTicksThickness: 4,
         chartX: 120,
-        chartY: 350
+        chartY: 500
     }));
     
     charts.push(new ClusterChart({
@@ -58,8 +58,8 @@ function setup() {
         xValues: "Years",
         yValues: ["Primary", "Secondary", "Third_Level"],
         yValuesTotal: "Total",
-        chartHeight: 400,
-        chartWidth: 300,
+        chartHeight: 250,
+        chartWidth: 250,
         barWidth: 10,
         margin: 15,
         axisThickness: 4,
