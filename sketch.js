@@ -127,11 +127,13 @@ function setup() {
 function draw() {
   background(50, 50, 50);
   console.log(charts);
-  charts[0].renderBars(),
+
+    charts[0].renderBars(),
     charts[0].renderAxis(),
-    charts[0].renderLabels(),
+    charts[0].renderLabels()
+    
     charts.forEach((chart, i) => {
-      if (typeof chart.renderBars === "function") {
+      if (typeof chart.renderBars === "function") {// this will check if the chart has a renderBars method
         chart.renderBars();
       }
 

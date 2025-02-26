@@ -71,14 +71,14 @@ class PieChart{
             }
 
             for (let i = 0; i < this.myNewArray.length; i++) {
-                let start = (i * (360 / this.myNewArray.length));
-                let end = ((i + 1) * (360 / this.myNewArray.length));
+                let start = (i * (360 / this.myNewArray.length));// Find the start of the arc where the text should go
+                let end = ((i + 1) * (360 / this.myNewArray.length));// Find the middle of the arc where the text should go
             
                 // Find the middle of the arc where the text should go
                 let mid = (start + end) / 2;
             
-                // Set the position where the text will appear (slightly outside the circle)
-                this.xValue = 200 * cos(mid) * 1.2; // The multiplier controls how far outside the pie the text is
+                // Calculate the position of the text
+                this.xValue = 200 * cos(mid) * 1.2; // 1.2 is a scaling factor to push the text out a bit
                 this.yValues = 200 * sin(mid) * 1.2;
             
                 // Display the text at the calculated position
