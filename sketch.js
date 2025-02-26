@@ -38,14 +38,28 @@ function setup() {
         chartX: 120,
         chartY: 350
     }));
+
+    charts.push(new BarChartSide({
+        data: cleanedData,
+        xValues: "Years",
+        yValues: "Primary",
+        chartHeight: 250,
+        chartWidth: 250,
+        barWidth: 10,
+        margin: 15,
+        axisThickness: 4,
+        axisTicksThickness: 4,
+        chartX: 120,
+        chartY: 350
+    }));
     
     charts.push(new ClusterChart({
         data: cleanedData,
         xValues: "Years",
         yValues: ["Primary", "Secondary", "Third_Level"],
         yValuesTotal: "Total",
-        chartHeight: 250,
-        chartWidth: 250,
+        chartHeight: 400,
+        chartWidth: 300,
         barWidth: 10,
         margin: 15,
         axisThickness: 4,

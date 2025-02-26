@@ -19,7 +19,7 @@ class PieChart{
         this.axisTicksColour = color(200,200,200);
         this.numTicks = 5;
 
-        this.myNewArray = this.data.map(row => row.Female);
+        this.myNewArray = this.data.map(row => row.Primary);
 	    this.total = 0;
 
 	    this.myNewArray.forEach(item => this.total = this.total + item);
