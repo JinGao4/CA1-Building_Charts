@@ -15,7 +15,7 @@ class ClusterChart{
 
 
         
-        gap =(this.chartWidth - (this.data.length * this.barWidth * this.yValues.length) - (this.margin * 2)) /(this.data.length - 1);
+        this.gap =(this.chartWidth - (this.data.length * this.barWidth * this.yValues.length) - (this.margin * 2)) /(this.data.length - 1);
 
 	    let maxValues = [];
 	    this.yValues.forEach((value) => {
@@ -35,28 +35,28 @@ class ClusterChart{
 
     render(){// this is a method that will render the bars in the chart
         push();
-	translate(chartPosX, chartPosY);
+	translate(this.chartPosX, this.chartPosY);
 
 	push();
-	translate(margin, 0);
+	translate(this.margin, 0);
 
-	for (let i = 0; i < cleanedData.length; i++) {
+	for (let i = 0; i < this.data.length; i++) {
 		push();
-		translate((gap + barWidth * yValues.length) * i, 0);
+		translate((gap + this.barWidth * this.yValues.length) * i, 0);
 
-		for (let j = 0; j < yValues.length; j++) {
+		for (let j = 0; j < this.yValues.length; j++) {
 			noStroke();
-			fill(barColours[j % 3]);
-			rect(barWidth * j, 0, barWidth, -cleanedData[i][yValues[j]] * scaler);
+			fill(this.barColours[j % 3]);
+			rect(this.barWidth * j, 0, this.barWidth, -this.data[i][this.yValues[j]] * scaler);
 
-			fill(axisTextColour);
+			fill(this.axisTextColour);
 			noStroke();
 			textAlign(LEFT, CENTER);
 			textSize(12);
 			push();
-			translate(barWidth, 10);
+			translate(this.barWidth, 10);
 			rotate(60);
-			text(cleanedData[i][xValue], 0, 0);
+			text(this.data[i][this.xValue], 0, 0);
 			pop();
 		}
 		pop();
@@ -64,10 +64,10 @@ class ClusterChart{
 	pop();
 
 	noFill();
-	stroke(axisColour);
-	strokeWeight(axisThickness);
-	line(0, 0, 0, -chartHeight);
-	line(0, 0, chartWidth, 0);
+	stroke(this.axisColour);
+	strokeWeight(this.axisThickness);
+	line(0, 0, 0, -this.chartHeight);
+	line(0, 0, this.chartWidth, 0);
 
 	pop();
     }

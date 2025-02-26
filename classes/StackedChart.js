@@ -34,7 +34,44 @@ class ClusterChart{
     }
 
     render(){// this is a method that will render the bars in the chart
-        
+        push()
+        translate(this.chartPosX,this.chartPosY)
+        noFill()
+        stroke(this.axisColour);
+        strokeWeight(this.axisThickness)
+        line (0,0,0,-this.chartHeight)
+        line (0,0,this.chartWidth,0)
+   
+        push()
+            translate(this.margin,0)
+            for(let i=0; i<this.data.length; i++){
+                let this.xPos = (this.barWidth + gap)*i;
+                push()
+                    translate(this.xPos,0)
+                        
+                    push()
+                        for(let j=0; j<this.yValues.length; j++){
+                            fill(this.barColours[j]);
+                            noStroke();
+                            
+                            rect (0,0,this.barWidth, -this.data[i][this.yValues[j]]*scaler);
+                            translate(0,-this.data[i][this.yValues[j]]*scaler - 1)
+                        }
+                    pop()
+                pop()
+
+                fill(this.axisTextColour);
+                noStroke();
+                textAlign(LEFT,CENTER);
+                textSize(8);
+                push()
+                    translate(this.xPos + (this.barWidth/2),10)
+                    rotate(60)
+                    text (this.data[i][this.xValue], 0, 0);
+                pop()
+            }
+        pop()
+    pop()
     }
 
     

@@ -13,28 +13,69 @@ class ClusterChart{
         this.chartX = obj.chartX;
         this.chartY = obj.chartY;
 
-
-        
-        gap =(this.chartWidth - (this.data.length * this.barWidth * this.yValues.length) - (this.margin * 2)) /(this.data.length - 1);
-
-	    let maxValues = [];
-	    this.yValues.forEach((value) => {
-		maxValues.push(this.data.map((row) => row[value]));
-	    });
-	    let maxValue = max(maxValues.flat(5));
-
-	    scaler = this.chartHeight / maxValue;
-
-
         this.axisColour = color(200,200,200);
         this.barColour = color(255,255,255);
         this.textColour = color(250,250,250);
         this.axisTicksColour = color(200,200,200);
         this.numTicks = 5;
+
+        myNewArray = data.map(row => row.Female);
+	    total = 0;
+
+	    myNewArray.forEach(item => total = total + item);
+	    console.log(total)
     }
 
     render(){// this is a method that will render the bars in the chart
-        
+        push()
+	translate(this.chartPosX,this.chartPosY);
+
+	for(let i=0;i<myNewArray.length;i++){
+			fill(255)
+			noStroke()
+			let start = 0;
+			let end =360/myNewArray.length
+	
+			let mid = (end - start)/2;
+			let xPos = 200 * cos (mid);
+			let yPos = 200 * sin (mid);
+			let circleWidth = yPos * cos(mid);
+			ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
+
+			arc(0,0,400,400,start,end,PIE);
+			
+			rotate(end );
+		}
+
+		
+	for(let i=0;i<myNewArray.length;i++){
+		fill(random(150));
+		stroke(255)
+		let start = 0;
+		let end = 360/myNewArray.length;
+
+		let maxValue = max(myNewArray)
+		let scaleValue = (400/maxValue);
+		let height = ((myNewArray[i]/maxValue)*400); 
+
+		let mid = (end - start)/2;
+			let xPos = height/2 * cos (mid);
+			let yPos = height/2 * sin (mid);
+			let circleWidth = yPos * cos(mid);
+			ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
+
+
+
+		
+		//console.log(scaleValue,myNewArray);
+		noStroke()
+		arc(0,0,height,height,start,end,PIE);
+		
+		rotate(end);
+	}
+
+
+	pop();
     }
 
     
