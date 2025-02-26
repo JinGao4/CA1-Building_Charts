@@ -15,7 +15,7 @@ class StackedChart{
 
 
         
-        gap =(this.chartWidth - (this.data.length * this.barWidth * this.yValues.length) - (this.margin * 2)) /(this.data.length - 1);
+        this.gap =(this.chartWidth - (this.data.length * this.barWidth * this.yValues.length) - (this.margin * 2)) /(this.data.length - 1);
 
 	    let maxValues = [];
 	    this.yValues.forEach((value) => {
@@ -23,7 +23,7 @@ class StackedChart{
 	    });
 	    let maxValue = max(maxValues.flat(5));
 
-	    scaler = this.chartHeight / maxValue;
+	    this.scaler = this.chartHeight / maxValue;
 
 
         this.axisColour = color(200,200,200);

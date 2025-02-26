@@ -19,11 +19,11 @@ class PieChart{
         this.axisTicksColour = color(200,200,200);
         this.numTicks = 5;
 
-        myNewArray = data.map(row => row.Female);
-	    total = 0;
+        this.myNewArray = this.data.map(row => row.Female);
+	    this.total = 0;
 
-	    myNewArray.forEach(item => total = total + item);
-	    console.log(total)
+	    this.myNewArray.forEach(item => this.total = this.total + item);
+	    console.log(this.total)
     }
 
     render(){// this is a method that will render the bars in the chart

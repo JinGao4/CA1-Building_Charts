@@ -23,7 +23,7 @@ class ClusterChart{
 	    });
 	    let maxValue = max(maxValues.flat(5));
 
-	    scaler = this.chartHeight / maxValue;
+	    this.scaler = this.chartHeight / maxValue;
 
 
         this.axisColour = color(200,200,200);

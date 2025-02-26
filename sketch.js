@@ -21,7 +21,7 @@ function cleanData(){
 }
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(5000, 5000);
     angleMode(DEGREES); // this will change the angle mode to degrees
     noLoop(); // this will stop the draw function from looping
     cleanData();
