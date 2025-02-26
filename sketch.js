@@ -52,6 +52,49 @@ function setup() {
         chartX: 120,
         chartY: 350
     }));
+
+    charts.push(new LineChart({
+        data: cleanedData,
+        xValues: "Years",
+        yValues: "Primary",
+        chartHeight: 250,
+        chartWidth: 250,
+        barWidth: 10,
+        margin: 15,
+        axisThickness: 4,
+        axisTicksThickness: 4,
+        chartX: 120,
+        chartY: 350
+    }));
+
+    charts.push(new PieChart({
+        data: cleanedData,
+        xValues: "Years",
+        yValues: "Primary",
+        chartHeight: 250,
+        chartWidth: 250,
+        barWidth: 10,
+        margin: 15,
+        axisThickness: 4,
+        axisTicksThickness: 4,
+        chartX: 120,
+        chartY: 350
+    }));
+
+    charts.push(new StackedChart({
+        data: cleanedData,
+        xValues: "Years",
+        yValues: "Primary",
+        chartHeight: 250,
+        chartWidth: 250,
+        barWidth: 10,
+        margin: 15,
+        axisThickness: 4,
+        axisTicksThickness: 4,
+        chartX: 120,
+        chartY: 350
+    }));
+
 }
 
 function draw(){
@@ -60,6 +103,7 @@ function draw(){
         chart.renderBars(),
         chart.renderAxis(),
         chart.renderLabels(),
-        chart.renderTicks()
+        chart.renderTicks(),
+        chart.render()
     ]);
 }

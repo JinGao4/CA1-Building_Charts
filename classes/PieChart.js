@@ -1,4 +1,4 @@
-class ClusterChart{
+class PieChart{
     constructor(obj){
         this.data = obj.data;
         this.xValues = obj.xValues;

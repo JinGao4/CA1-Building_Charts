@@ -1,4 +1,4 @@
-class ClusterChart{
+class StackedChart{
     constructor(obj){
         this.data = obj.data;
         this.xValues = obj.xValues;
@@ -45,7 +45,7 @@ class ClusterChart{
         push()
             translate(this.margin,0)
             for(let i=0; i<this.data.length; i++){
-                let this.xPos = (this.barWidth + gap)*i;
+                let xPos = (this.barWidth + gap)*i;
                 push()
                     translate(this.xPos,0)
                         

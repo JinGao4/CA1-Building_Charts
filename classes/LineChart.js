@@ -1,4 +1,4 @@
-class ClusterChart{
+class lineChart{
     constructor(obj){
         this.data = obj.data;
         this.xValues = obj.xValues;
