@@ -4,8 +4,20 @@ let charts =[];
 
 
 function preload(){
-    // data = loadTable('data/Combined.csv', 'csv', 'header');// this will load the data from the csv file
     data = loadTable('data/ChartData.csv', 'csv', 'header');// this will load the data from the csv file
+}
+
+function cleanData(){
+    for (let i = 0; i < data.rows.length; i++){// this will loop through the rows of the data
+        cleanedData.push(data.rows[i].obj);   // this will push the object into the cleanedData array
+        }
+    for(let i=0; i<cleanedData.length; i++){ // this will loop through the cleanedData array
+        cleanedData[i].Primary = parseInt(cleanedData[i].Primary); // this will convert the string to an integer
+        cleanedData[i].Secondary = parseInt(cleanedData[i].Secondary); 
+        cleanedData[i].Third_Level = parseInt(cleanedData[i].Third_Level); 
+    }
+    console.log(cleanedData);
+      
 }
 
 function setup() {
@@ -27,17 +39,6 @@ function setup() {
         chartY: 350
     }));
     
-}
-
-function cleanData(){
-    for (let i = 0; i < data.rows.length; i++){// this will loop through the rows of the data
-        cleanedData.push(data.rows[i].obj);   // this will push the object into the cleanedData array
-        }
-    for(let i=0; i<cleanedData.length; i++){ // this will loop through the cleanedData array
-        cleanedData[i].Primary = parseInt(cleanedData[i].Primary); // this will convert the string to an integer
-    }
-    console.log(cleanedData);
-      
 }
 
 function draw(){
