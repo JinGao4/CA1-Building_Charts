@@ -15,7 +15,6 @@ class PieChart{
 
         this.axisColour = color(200,200,200);
         this.barColour = color(255,255,255);
-        this.textColour = color(250,250,250);
         this.axisTicksColour = color(200,200,200);
         this.numTicks = 5;
 
@@ -28,13 +27,13 @@ class PieChart{
 
     render(){// this is a method that will render the bars in the chart
         push()
-            translate(this.chartPosX,this.chartPosY);
+            translate(this.chartX,this.chartY);
 
-            for(let i=0;i<myNewArray.length;i++){
+            for(let i=0;i<this.myNewArray.length;i++){
                 fill(255)
                 noStroke()
                 let start = 0;
-                let end =360/myNewArray.length
+                let end =360/this.myNewArray.length
             
                 let mid = (end - start)/2;
                 let xPos = 200 * cos (mid);
@@ -48,15 +47,15 @@ class PieChart{
             }
 
                 
-            for(let i=0;i<myNewArray.length;i++){
+            for(let i=0;i<this.myNewArray.length;i++){
                 fill(random(150));
                 stroke(255)
                 let start = 0;
-                let end = 360/myNewArray.length;
+                let end = 360/this.myNewArray.length;
 
-                let maxValue = max(myNewArray)
+                let maxValue = max(this.myNewArray)
                 let scaleValue = (400/maxValue);
-                let height = ((myNewArray[i]/maxValue)*400); 
+                let height = ((this.myNewArray[i]/maxValue)*400); 
 
                 let mid = (end - start)/2;
                 let xPos = height/2 * cos (mid);
@@ -64,16 +63,16 @@ class PieChart{
                 let circleWidth = yPos * cos(mid);
                 ellipse(xPos,yPos,circleWidth*2,circleWidth*2)
                 
-                //console.log(scaleValue,myNewArray);
+                //console.log(scaleValue,this.myNewArray);
                 noStroke()
                 arc(0,0,height,height,start,end,PIE);
                 
                 rotate(end);
             }
 
-            for (let i = 0; i < myNewArray.length; i++) {
-                let start = (i * (360 / myNewArray.length));
-                let end = ((i + 1) * (360 / myNewArray.length));
+            for (let i = 0; i < this.myNewArray.length; i++) {
+                let start = (i * (360 / this.myNewArray.length));
+                let end = ((i + 1) * (360 / this.myNewArray.length));
             
                 // Find the middle of the arc where the text should go
                 let mid = (start + end) / 2;
@@ -86,7 +85,7 @@ class PieChart{
                 fill(255);
                 noStroke();
                 textAlign(CENTER, CENTER);
-                text(myNewArray[i], this.xValue, this.yValues); // You can change `myNewArray[i]` to any label you want to show
+                text(this.myNewArray[i], this.xValue, this.yValues); // You can change `this.myNewArray[i]` to any label you want to show
             }
         pop();
     }

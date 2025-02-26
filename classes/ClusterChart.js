@@ -27,7 +27,7 @@ class ClusterChart{
 
 
         this.axisColour = color(200,200,200);
-        this.barColour = color(255,255,255);
+        this.barColours = [color(255,255,255), color(255, 0,0 ), color(0,255,0)];
         this.textColour = color(250,250,250);
         this.axisTicksColour = color(200,200,200);
         this.numTicks = 5;
@@ -35,28 +35,28 @@ class ClusterChart{
 
     render(){// this is a method that will render the bars in the chart
         push();
-            translate(this.chartPosX, this.chartPosY);
+            translate(this.chartX, this.chartY);
 
             push();
                 translate(this.margin, 0);
 
                 for (let i = 0; i < this.data.length; i++) {
                     push();
-                        translate((gap + this.barWidth * this.yValues.length) * i, 0);
+                        translate((this.gap + this.barWidth * this.yValues.length) * i, 0);
 
                         for (let j = 0; j < this.yValues.length; j++) {
                             noStroke();
                             fill(this.barColours[j % 3]);
-                            rect(this.barWidth * j, 0, this.barWidth, -this.data[i][this.yValues[j]] * scaler);
+                            rect(this.barWidth * j, 0, this.barWidth, -this.data[i][this.yValues[j]] * this.scaler);
 
-                            fill(this.axisTextColour);
+                            fill(this.axisColour);
                             noStroke();
                             textAlign(LEFT, CENTER);
                             textSize(12);
                             push();
                             translate(this.barWidth, 10);
                             rotate(60);
-                            text(this.data[i][this.xValue], 0, 0);
+                            text(this.data[i][this.xValues], 0, 0);
                             pop();
                         }
                     pop();
