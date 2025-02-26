@@ -42,7 +42,8 @@ function setup() {
     charts.push(new ClusterChart({
         data: cleanedData,
         xValues: "Years",
-        yValues: "Primary",
+        yValues: ["Primary", "Secondary", "Third_Level"],
+        yValuesTotal: "Total",
         chartHeight: 250,
         chartWidth: 250,
         barWidth: 10,
@@ -56,7 +57,7 @@ function setup() {
     charts.push(new LineChart({
         data: cleanedData,
         xValues: "Years",
-        yValues: "Primary",
+        yValues: ["Primary", "Secondary", "Third_Level"],
         chartHeight: 250,
         chartWidth: 250,
         barWidth: 10,
@@ -70,7 +71,7 @@ function setup() {
     charts.push(new PieChart({
         data: cleanedData,
         xValues: "Years",
-        yValues: "Primary",
+        yValues: ["Primary", "Secondary", "Third_Level"],
         chartHeight: 250,
         chartWidth: 250,
         barWidth: 10,
@@ -84,7 +85,8 @@ function setup() {
     charts.push(new StackedChart({
         data: cleanedData,
         xValues: "Years",
-        yValues: "Primary",
+        yValues: ["Primary", "Secondary", "Third_Level"],
+        yValuesTotal: "Total",
         chartHeight: 250,
         chartWidth: 250,
         barWidth: 10,
